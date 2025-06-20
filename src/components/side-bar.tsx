@@ -1,9 +1,15 @@
 import { useFetchProducts } from "../connect/useFetchProducts";
+import { useCategoryProduct } from "../connect/useCategoryProduct";
 
 export const SideBar = () => {
-  const { data } = useFetchProducts();
-  if (data) {
-    console.log(data.map((data) => data.availabilityStatus));
+  const { data: products } = useFetchProducts();
+  if (products) {
+    console.log(products.map((data) => data));
+  }
+
+  const { data: categoryProducts } = useCategoryProduct("smartphones");
+  if (categoryProducts) {
+    console.log(categoryProducts.map((data) => data));
   }
 
   return (

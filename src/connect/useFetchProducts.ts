@@ -6,7 +6,7 @@ export const useFetchProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await apiClient.get("/");
+        const response = await apiClient.get("/products?limit=194");
         setData(response.data.products);
       } catch (error) {
         console.error("Error fetching data:", error);
