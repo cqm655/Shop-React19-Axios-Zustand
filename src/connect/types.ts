@@ -12,6 +12,26 @@ export interface Reviews {
   reviewerName: string;
 }
 
-export interface ApiClient {
+export interface Products {
   availabilityStatus: string;
+  category: string;
+  reviews: Reviews;
+  dimensions: Dimensions;
+  discountPercentage: number;
+  images: string[];
+  meta: string;
+  minimumOrderQuantity: number;
+  price: number;
+  rating: number;
+  returnPolicy: string;
+  stock: number;
+  thumbnail: string;
+  title: string;
+  warrantyInformation: string;
+  weight: number;
+  id: number;
+}
+
+export interface ApiResponse<T> {
+  products: T;
 }

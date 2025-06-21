@@ -1,13 +1,19 @@
 import { Header } from "../components/header";
-import { Main } from "../components/main";
 import { Footer } from "../components/footer";
+import { SideBar } from "../components/side-bar";
+import { Outlet } from "react-router";
 
 export const Home = () => {
   return (
-    <section className="flex flex-col h-screen min-w-[800px]">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <Main />
+      <div className="flex flex-1">
+        <SideBar />
+        <main className="flex-1 p-4 bg-gray-100 rounded-xl ml-2">
+          <Outlet />
+        </main>
+      </div>
       <Footer />
-    </section>
+    </div>
   );
 };
