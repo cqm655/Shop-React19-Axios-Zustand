@@ -5,14 +5,15 @@ import { Outlet } from "react-router";
 
 export const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className=" flex flex-col bg-gray-500 ">
       <Header />
-      <div className="flex flex-1">
-        <SideBar />
-        <main className="flex-1 p-4 bg-gray-100 rounded-xl ml-2">
-          <Outlet />
-        </main>
-      </div>
+
+      <SideBar />
+
+      <main className="flex-1 relative mt-[-32%] p-4 ml-[25%] bg-gray-100 rounded-xl mr-4 scroll-auto ">
+        <Outlet />
+      </main>
+
       <Footer />
     </div>
   );
