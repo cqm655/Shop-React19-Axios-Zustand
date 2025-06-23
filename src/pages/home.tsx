@@ -1,21 +1,18 @@
+// Home.tsx
+
 import { Header } from "../components/header";
-import { Footer } from "../components/footer";
-import { SideBar } from "../components/side-bar";
-import { Outlet } from "react-router";
 
 export const Home = () => {
   return (
-    <div className=" flex flex-col bg-gray-300 ">
+    <div className=" h-[100vh] bg-yellow-100 overflow-hidden">
       <Header />
-      <div className="mt-2 bg-red-400 flex ">
-        <SideBar />
-
-        <div className="p-2 ">
-          <Outlet />
+      <section className=" ">
+        <div className="text-center ">
+          <p className="font-sans text-3xl font-semibold text-gray-600/100 dark:text-gray-400/100 underline underline-offset-1">
+            OUR PRODUCTS
+          </p>
         </div>
-      </div>
-
-      <Footer />
+      </section>
     </div>
   );
 };
