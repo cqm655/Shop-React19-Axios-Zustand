@@ -1,6 +1,6 @@
 import { useGetProducts } from "../connect/useGetProducts";
 
-export const GetUniqueCategory = () => {
+export const getUniqueCategory = () => {
   const { data } = useGetProducts();
 
   const categories = data
