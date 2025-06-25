@@ -13,7 +13,7 @@ export const Home = () => {
     >
       <Header />
 
-      <div className="grid grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 overflow-auto p-4">
+      <div className="top-[5%] relative  grid grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-0 m-0 w-full overflow-auto">
         <Card
           name={"Titlu"}
           img={
