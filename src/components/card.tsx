@@ -9,21 +9,14 @@ type CardProps = {
 export const Card = ({ img, name, description }: CardProps) => {
   return (
     <motion.div
-      className="container  bg-yellow-50 h-[400px]  text-2xl "
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      className="container h-full bg-yellow-50  text-2xl hover:opacity-20 mb-0"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: false, amount: 0.3 }}
     >
-      <div className="Card-Title text-center ">{name}</div>
-      <div className="flex  justify-center">
-        <img
-          className="w-[250px] h-[250px] object-cover"
-          src={img}
-          alt={"Card image"}
-        />
-      </div>
-      <div className="text-center text-xl">
-        <p>{description}</p>
+      <div className="flex-1  justify-center hover:opacity-10 ">
+        <img className=" object-cover" src={img} alt={"Card image"} />
       </div>
     </motion.div>
   );

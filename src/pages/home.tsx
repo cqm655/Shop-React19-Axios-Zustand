@@ -6,78 +6,25 @@ import { Card } from "../components/card";
 export const Home = () => {
   return (
     <motion.div
-      className="h-screen  flex-col  flex-1 backdrop-filter"
+      className="min-h-screen flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <Header />
 
-      <div className="top-[5%] relative  grid grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-0 m-0 w-full overflow-auto">
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />{" "}
-        <Card
-          name={"Titlu"}
-          img={
-            "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          description={"lorem ipsum"}
-        />
-      </div>
+      <main className="flex-1 px-4 py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-0">
+          {[...Array(19)].map((_, index) => (
+            <Card
+              key={index}
+              name={`Titlu ${index + 1}`}
+              img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
+              description="lorem ipsum"
+            />
+          ))}
+        </div>
+      </main>
 
       <Footer />
     </motion.div>
