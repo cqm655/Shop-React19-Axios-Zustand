@@ -10,9 +10,6 @@ export const Products = () => {
   const { data } = useGetProducts();
   const { categories } = getUniqueCategory();
 
-  if (!data || data.length === 0) {
-    return <div className="text-center text-gray-500">No products found.</div>;
-  }
   console.log(categories);
   return (
     <motion.div
