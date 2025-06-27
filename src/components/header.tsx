@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header
       style={{ backdropFilter: "blur(20px)" }}
-      className="sticky z-10 top-4 w-1/3 mx-auto  mt-2 rounded-2xl   bg-white/30 shadow-lg  text-black p-4"
+      className="sticky z-10 top-4 w-1/3 mx-auto min-w-fit  mt-2 rounded-2xl   bg-white/30 shadow-lg  text-black p-4"
     >
       <nav className="flex space-x-4 justify-center items-center text-xl text-gray-500  ">
         <NavLink
