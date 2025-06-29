@@ -6,7 +6,7 @@ type CardProps = {
   description: string;
 };
 
-export const Card = ({ img, name, description }: CardProps) => {
+export const PhotoCard = ({ img, name, description }: CardProps) => {
   return (
     <motion.div
       className="relative group  overflow-hidden z-[1] "
@@ -41,7 +41,7 @@ export const Card = ({ img, name, description }: CardProps) => {
 
       <img
         src={img}
-        alt="Card image"
+        alt="PhotoCard image"
         className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 z-0"
       />
 

@@ -1,34 +1,30 @@
-import { useGetProducts } from "../connect/useGetProducts";
-import { getUniqueCategory } from "../utils/get-unique-category";
 import { Header } from "../components/header";
 import { SideBar } from "../components/side-bar";
-import { Outlet } from "react-router";
 import { Footer } from "../components/footer";
 import { motion } from "framer-motion";
+import { ProductCard } from "../components/product-card";
+import { useGetProducts } from "../connect/useGetProducts";
 
 export const Products = () => {
-  const { data } = useGetProducts();
-  const { categories } = getUniqueCategory();
+  const data = useGetProducts();
 
-  console.log(categories);
   return (
     <motion.div
-      className="flex flex-col h-screen bg-yellow-50"
+      className="flex flex-col h-screen bg-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <Header />
 
-      <div className="flex flex-1 overflow-hidden">
+      <main className="flex flex-1 overflow-hidden p-4 bg-gray-200 mt-4">
         <SideBar />
-
-        <main className="flex-1 overflow-hidden p-4">
-          <div className="h-full grid-cols-3 overflow-y-auto rounded-xl bg-white shadow-md p-4">
-            <Outlet />
-          </div>
-        </main>
-      </div>
+        <div className=" h-full  w-full relative  overflow-y-auto rounded-xl bg-white shadow-md grid grid-cols-1 p-4 gap-4 ml-2 mr-2 mx-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {data.map((item) => {
+            return <ProductCard data={item} key={item.id} />;
+          })}
+        </div>
+      </main>
 
       <Footer />
     </motion.div>

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { Card } from "../components/card";
-import ReactPlayer from "react-player";
+import { PhotoCard } from "../components/photo-card";
 
 export const Home = () => {
   return (
@@ -48,7 +47,7 @@ export const Home = () => {
         <div className="grid grid-cols-6 grid-rows-2 gap-0  mx-auto">
           <div className="row-span-2 col-span-2 ...">
             {" "}
-            <Card
+            <PhotoCard
               name={`Titlu 1`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
               description="lorem ipsum"
@@ -56,7 +55,7 @@ export const Home = () => {
           </div>{" "}
           <div className="row-span-1 col-span-1 ...">
             {" "}
-            <Card
+            <PhotoCard
               name={`Titlu 2`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
               description="lorem ipsum"
@@ -64,7 +63,7 @@ export const Home = () => {
           </div>
           <div className="col-span-1 row-span-1 ...">
             {" "}
-            <Card
+            <PhotoCard
               name={`Titlu 3`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
               description="lorem ipsum"
@@ -72,7 +71,7 @@ export const Home = () => {
           </div>{" "}
           <div className="col-span-2 row-span-2 ...">
             {" "}
-            <Card
+            <PhotoCard
               name={`Titlu 4`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
               description="lorem ipsum"
@@ -80,7 +79,7 @@ export const Home = () => {
           </div>{" "}
           <div className="col-start-3 col-span-1 ...">
             {" "}
-            <Card
+            <PhotoCard
               name={`Titlu 5`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
               description="lorem ipsum"
@@ -88,7 +87,7 @@ export const Home = () => {
           </div>{" "}
           <div className="col-start-4 col-span-1 ...">
             {" "}
-            <Card
+            <PhotoCard
               name={`Titlu 6`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
               description="lorem ipsum"
@@ -117,7 +116,7 @@ export const Home = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-0">
           {[...Array(6)].map((_, index) => (
-            <Card
+            <PhotoCard
               key={index}
               name={`Titlu ${index + 1}`}
               img="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop"
