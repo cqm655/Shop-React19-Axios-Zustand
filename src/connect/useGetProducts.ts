@@ -2,22 +2,25 @@ import { ApiResponse, Products } from "./types";
 import { useEffect, useState } from "react";
 import { apiClient } from "./api-client";
 
-export const useGetProducts = (): Products[] => {
+export const useGetProducts = () => {
   const [data, setData] = useState<Products[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await apiClient.get<ApiResponse<Products[]>>(
-          "/products?limit=194",
+          "/products?limit=100",
         );
         setData(response.data.products);
-        return response.data;
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (error: any) {
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
   }, []);
 
-  return data;
+  return { data, loading, error };
 };

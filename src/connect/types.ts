@@ -12,10 +12,19 @@ export interface Reviews {
   reviewerName: string;
 }
 
+export interface Review {
+  comment: string;
+  date: string;
+  rating: number;
+  reviewerEmail: string;
+  reviewerName: string;
+}
+
 export interface Products {
   availabilityStatus: string;
+  brand: string;
   category: string;
-  reviews: Reviews;
+  reviews: Review[];
   dimensions: Dimensions;
   discountPercentage: number;
   images: string[];

@@ -2,11 +2,11 @@ import { Header } from "../components/header";
 import { SideBar } from "../components/side-bar";
 import { Footer } from "../components/footer";
 import { motion } from "framer-motion";
-import { ProductCard } from "../components/product-card";
 import { useGetProducts } from "../connect/useGetProducts";
+import { ProductCard } from "../components/product-card";
 
 export const Products = () => {
-  const data = useGetProducts();
+  const { data, loading, error } = useGetProducts();
 
   return (
     <motion.div
@@ -21,7 +21,7 @@ export const Products = () => {
         <SideBar />
         <div className=" h-full  w-full relative  overflow-y-auto rounded-xl bg-white shadow-md grid grid-cols-1 p-4 gap-4 ml-2 mr-2 mx-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data.map((item) => {
-            return <ProductCard data={item} key={item.id} />;
+            return <ProductCard data={item} key={item.id} loading={loading} />;
           })}
         </div>
       </main>
