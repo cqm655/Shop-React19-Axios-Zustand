@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Products } from "../connect/types";
 import { useState } from "react";
 import { inStockBar } from "../utils/instock-pogress-bar";
+import { useAddToCart } from "../store/use-add-to-cart";
 
 type ProductCardProps = {
   data: Products;
@@ -26,6 +27,8 @@ export const ProductCard = ({ data, loading }: ProductCardProps) => {
     );
   }
   console.log(data);
+  const addToCart = useAddToCart((state) => state.addToCart);
+
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -95,7 +98,14 @@ export const ProductCard = ({ data, loading }: ProductCardProps) => {
               <span className="font-bold ">Price: {data.price}</span>
             </div>
           </div>
-          <div className="add-to_cart col-span-2 row-span-2 self-center ml-8 p-3 hover:bg-gray-400 rounded-2xl">
+          <div
+            className="add-to_cart col-span-2 row-span-2 self-center ml-8 p-3 hover:bg-gray-400 rounded-2xl"
+            onClick={() => {
+              addToCart({
+                ...data,
+              });
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

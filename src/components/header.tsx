@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import { useAddToCart } from "../store/use-add-to-cart";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+
+  const cartCount = useAddToCart((state) => state.count);
+  const cartData = useAddToCart((state) => state.cart);
+  console.log("header", cartData);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +51,7 @@ export const Header = () => {
         }transition-all duration-400`}
       >
         <span className="absolute ml-[-25px] mt-[-10px] bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
-          10
+          {cartCount}
         </span>
 
         <svg
