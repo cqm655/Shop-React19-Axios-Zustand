@@ -1,13 +1,15 @@
 import { create } from "zustand";
 import { Products } from "../connect/types";
 
-type CounterStore = {
+type CartState = {
   count: number;
   cart: Products[];
   addToCart: (item: Products) => void;
   removeFromCart: (id: number) => void;
+  toggleCard?: (isOpen: boolean) => void;
+  isOpen?: boolean | false;
 };
-export const useAddToCart = create<CounterStore>((set) => ({
+export const useCart = create<CartState>((set) => ({
   count: 0,
   cart: [],
   addToCart: (item) => {
@@ -32,5 +34,24 @@ export const useAddToCart = create<CounterStore>((set) => ({
     });
   },
 
-  removeFromCart: () => {},
+  removeFromCart: (id: number) =>
+    set((state) => {
+      const existingItem = state.cart.find((cartItem) => cartItem.id === id);
+      if (existingItem) {
+        return {
+          count: state.count - 1,
+          cart: state.cart.map((cartItem) =>
+            cartItem.id === id
+              ? { ...cartItem, quantity: state.count - 1 }
+              : cartItem,
+          ),
+        };
+      }
+      return {
+        count: state.count - 1,
+        cart: state.cart.filter((cartItem) => cartItem.id !== id),
+      };
+    }),
+
+  toggleCard: (isOpen) => set({ isOpen }),
 }));

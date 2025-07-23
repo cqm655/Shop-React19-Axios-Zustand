@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
-import { useAddToCart } from "../store/use-add-to-cart";
+import { NavLink, useNavigate } from "react-router";
+import { useCart } from "../store/use-cart";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  const cartCount = useAddToCart((state) => state.count);
-  const cartData = useAddToCart((state) => state.cart);
-  console.log("header", cartData);
+  const cartCount = useCart((state) => state.count);
+  const cartData = useCart((state) => state.cart);
+  const toggleCart = useCart((state) => state.toggleCard);
+  const isOpen = useCart((state) => state.isOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,12 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const openCart = () => {
+    if (toggleCart) {
+      toggleCart(!isOpen);
+    }
+  };
 
   return (
     <header
@@ -36,7 +43,7 @@ export const Header = () => {
         </NavLink>
 
         <NavLink
-          to={"/products"}
+          to={"/main-page/products"}
           end
           className="rounded-md px-3 py-2 font-medium text-inherit hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
         >
@@ -49,6 +56,7 @@ export const Header = () => {
             ? "bg-black/30 text-white"
             : "bg-white/30 text-black dark:text-white/30"
         }transition-all duration-400`}
+        onClick={openCart}
       >
         <span className="absolute ml-[-25px] mt-[-10px] bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">
           {cartCount}

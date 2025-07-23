@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Products } from "../connect/types";
 import { useState } from "react";
 import { inStockBar } from "../utils/instock-pogress-bar";
-import { useAddToCart } from "../store/use-add-to-cart";
+import { useCart } from "../store/use-cart";
 
 type ProductCardProps = {
   data: Products;
@@ -27,7 +27,7 @@ export const ProductCard = ({ data, loading }: ProductCardProps) => {
     );
   }
   console.log(data);
-  const addToCart = useAddToCart((state) => state.addToCart);
+  const addToCart = useCart((state) => state.addToCart);
 
   return (
     <motion.div
