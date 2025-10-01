@@ -44,7 +44,6 @@ export const Cart = () => {
               </div>
             );
           })}
-          {/*<div className={"cart-checkout w-[500px] h-[100px] bg-red-600"}></div>*/}
         </div>
       )}
     </div>

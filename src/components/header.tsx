@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import { useCart } from "../store/use-cart";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-
   const cartCount = useCart((state) => state.count);
   const cartData = useCart((state) => state.cart);
   const toggleCart = useCart((state) => state.toggleCard);
   const isOpen = useCart((state) => state.isOpen);
-  console.log(isOpen);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -37,17 +36,23 @@ export const Header = () => {
         style={{ backdropFilter: "blur(20px)" }}
       >
         <NavLink
-          to={"/"}
-          end
-          className="rounded-md px-3 py-2 font-medium text-inherit hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "rounded-md px-3 py-2 font-medium bg-gray-700 text-white"
+              : "rounded-md px-3 py-2 font-medium text-inherit hover:bg-gray-700 hover:text-white"
+          }
         >
           Main
         </NavLink>
 
         <NavLink
-          to={"/products"}
-          end
-          className="rounded-md px-3 py-2 font-medium text-inherit hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
+          to="/products"
+          className={({ isActive }) =>
+            isActive
+              ? "rounded-md px-3 py-2 font-medium bg-gray-700 text-white"
+              : "rounded-md px-3 py-2 font-medium text-inherit hover:bg-gray-700 hover:text-white"
+          }
         >
           Products
         </NavLink>
