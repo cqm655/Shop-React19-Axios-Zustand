@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { apiClient } from "./api-client";
-import { Products } from "./types";
+import { apiClient } from "../api-client";
+import { Products } from "../types";
 
 export const useGetCategoryProduct = (category: string) => {
   const [data, setData] = useState([]);

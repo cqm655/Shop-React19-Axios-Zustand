@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
 import { PhotoCard } from "../components/photo-card";
 
 export const Home = () => {
@@ -12,8 +10,6 @@ export const Home = () => {
       exit={{ opacity: 0 }}
       viewport={{ once: true }}
     >
-      <Header />
-
       <main className="flex-1 py-6">
         <div className="justify-center text-center mb-10  ">
           <motion.h1
@@ -125,8 +121,6 @@ export const Home = () => {
           ))}
         </div>
       </main>
-
-      <Footer />
     </motion.div>
   );
 };

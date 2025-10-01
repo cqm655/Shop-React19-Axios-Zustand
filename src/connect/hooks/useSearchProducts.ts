@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { apiClient } from "./api-client";
-import { ApiResponse, Products } from "./types";
+import { apiClient } from "../api-client";
+import { ApiResponse, Products } from "../types";
 
 export const useSearchProducts = () => {
   const [data, setData] = useState<Products[]>([]);

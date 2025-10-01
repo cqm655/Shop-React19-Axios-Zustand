@@ -1,6 +1,6 @@
-import { ApiResponse, Products } from "./types";
+import { ApiResponse, Products } from "../types";
 import { useEffect, useState } from "react";
-import { apiClient } from "./api-client";
+import { apiClient } from "../api-client";
 
 export const useGetProducts = () => {
   const [data, setData] = useState<Products[]>([]);
