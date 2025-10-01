@@ -1,4 +1,4 @@
-import { useGetProducts } from "../connect/useGetProducts";
+import { useGetProducts } from "../connect/hooks/useGetProducts";
 
 export const getUniqueCategory = () => {
   const data = useGetProducts();

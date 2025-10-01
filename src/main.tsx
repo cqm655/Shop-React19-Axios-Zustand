@@ -9,13 +9,18 @@ import { MainPage } from "./pages/main-page";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "main-page",
     element: <MainPage />,
-    children: [{ path: "products", element: <Products /> }],
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      { path: "products", element: <Products /> },
+      {
+        path: "carts",
+        element: <Cart />,
+      },
+    ],
   },
 ]);
 

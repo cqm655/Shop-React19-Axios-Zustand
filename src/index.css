@@ -9,3 +9,27 @@ body {
     margin: 0;
 }
 
+@layer utilities {
+    .scrollbar-glass::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .scrollbar-glass::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05); /* semi-transparent */
+        backdrop-filter: blur(4px); /* blur soft */
+        border-radius: 9999px;
+    }
+
+    .scrollbar-glass::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2); /* white translucent */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(6px);
+        border-radius: 9999px;
+    }
+
+    .scrollbar-glass {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05); /* Firefox */
+    }
+}
+

@@ -26,7 +26,7 @@ export const ProductCard = ({ data, loading }: ProductCardProps) => {
       </div>
     );
   }
-  console.log(data);
+
   const addToCart = useCart((state) => state.addToCart);
 
   return (
