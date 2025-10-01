@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import { useCart } from "../store/use-cart";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-
   const cartCount = useCart((state) => state.count);
   const cartData = useCart((state) => state.cart);
   const toggleCart = useCart((state) => state.toggleCard);
   const isOpen = useCart((state) => state.isOpen);
-
-  const path = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {

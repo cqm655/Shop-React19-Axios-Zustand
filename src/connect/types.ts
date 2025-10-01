@@ -4,14 +4,6 @@ export interface Dimensions {
   width: number;
 }
 
-export interface Reviews {
-  comment: string;
-  date: string;
-  rating: number;
-  reviewerEmail: string;
-  reviewerName: string;
-}
-
 export interface Review {
   comment: string;
   date: string;
